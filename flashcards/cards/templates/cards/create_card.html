@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Create a card</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Submit</button>
+    <p><button><a href="/card">Random card</a></button></p>
+    <!-- <a href="{url ''}" Sign up></a> -->
+</form>
+{% endblock %}
