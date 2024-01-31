@@ -1,0 +1,33 @@
+<!-- display_random_flashcard.html -->
+{% extends 'base.html' %}
+
+<!-- {% block title %}Random Flashcard{% endblock %} -->
+
+{% block additional_styles %}
+<!-- {{ block.super }} -->
+    <style>
+        .answer-container {
+            display: none;
+        }
+
+        #reveal-answer:checked + .answer-container {
+            display: block;
+            /* background-color: blue; */
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h2>Random Flashcard</h2>
+    <p>Spanish: {{ object.side_a }}</p>
+    <label for="reveal-answer">Reveal Answer</label>
+    <input type="checkbox" id="reveal-answer">
+    <div class="answer-container">
+        <p>English: {{ object.side_b }}</p>
+    </div>
+
+    <p><button><a href="/card">Random card</a></button></p>
+    <p><button><a href="/create">Create new card</a></button></p>
+
+    
+{% endblock %}

@@ -26,6 +26,9 @@ def create_card(request):
 # @login_required
 class FlashCardList(generic.ListView):
     model = FlashCard
-    def display_random_card(self):
+
+class FlashCardDetail(generic.DetailView):
+    model = FlashCard
+    def get_object(self, queryset=None):
         return random.choice(FlashCard.objects.all())
 
